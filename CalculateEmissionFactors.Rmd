@@ -21,7 +21,7 @@ price_adjust_matrices <- c("B", "D", "M", "N", "M_margin", "N_margin")
 MajorGHGs <- c("Carbon dioxide", "Methane", "Nitrous oxide")
 dollaryear <- params$dollaryear
 modelname <- "USEEIOv2.2.22-GHG"
-checkModelIOYear(modelname)
+#checkModelIOYear(modelname)
 ```
 
 ```{r build-model, include=FALSE}
@@ -61,7 +61,7 @@ prepareSEFtable <- function(table, factorform="Scientific Notation") {
   table <- table[table[,seffields[1]] != 0,]
   
   # Associate SEFs with 2017 NAICS-6
-  table <- mapto2017NAICS(table,model,useeiocodefield,useeionamefield,seffields)
+  # table <- mapto2017NAICS(table,model,useeiocodefield,useeionamefield,seffields)
   
   if (factorform=="Decimal Form") {
     # Round table values to 3 digits
@@ -91,7 +91,7 @@ table_characterized <- df[df$Flowable == "All GHGs", ]
 
 table_characterized <- prepareSEFtable(table_characterized,factorform="Decimal Form")
 
-write_to_filename <- paste0("SupplyChainGHGEmissionFactors_",SEFversion,"_NAICS_CO2e_USD", dollaryear, ".csv")
+write_to_filename <- paste0("SupplyChainGHGEmissionFactors_",SEFversion,"_BEA-IS_CO2e_USD", dollaryear, ".csv")
 write.csv(table_characterized, write_to_filename, row.names = FALSE, fileEncoding = "UTF-8")
 ```
 Saved `r write_to_filename`.
@@ -108,7 +108,7 @@ df <- rbind(df,df_un)
 table_by_gas <- df_un
 table_by_gas <- prepareSEFtable(table_by_gas)
 
-write_to_filename <- paste0("SupplyChainGHGEmissionFactors_",SEFversion,"_NAICS_byGHG_USD", dollaryear,".csv")
+write_to_filename <- paste0("SupplyChainGHGEmissionFactors_",SEFversion,"_BEA-IS_byGHG_USD", dollaryear,".csv")
 write.csv(table_by_gas, write_to_filename, row.names = FALSE, fileEncoding = "UTF-8")
 
 

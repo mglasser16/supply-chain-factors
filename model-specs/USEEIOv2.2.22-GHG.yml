@@ -1,13 +1,13 @@
 Model: "USEEIOv2.2.22-GHG" # 2022 Detail, Commodity
 BaseIOSchema: 2017
-BaseIOLevel: "Detail"
+BaseIOLevel: "Summary"
 IOYear: 2017 # Year for IO data
 ModelRegionAcronyms: ["US"]
 ModelType: "EEIO"
 IODataSource: "BEA"
 BasePriceType: "PRO" #producer
 BasewithRedefinitions: FALSE
-CommodityorIndustryType: "Commodity"
+CommodityorIndustryType: "Industry"
 ScrapIncluded: FALSE
 DisaggregationSpecs: null
 
