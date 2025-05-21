@@ -7,6 +7,7 @@ params:
   dollaryear: 2022
 ---
 
+
 Generate supply chain GHG emission factors for NAICS-6 Commodities using 2022 GHG data in CO2-equivalent and by gas.
 
 ```{r setup, include=FALSE}
@@ -19,6 +20,7 @@ library(useeior)
 library(kableExtra)
 price_adjust_matrices <- c("B", "D", "M", "N", "M_margin", "N_margin")
 MajorGHGs <- c("Carbon dioxide", "Methane", "Nitrous oxide")
+params <- list(dollaryear = 2022)
 dollaryear <- params$dollaryear
 modelname <- "USEEIOv2.2.22-GHG"
 #checkModelIOYear(modelname)
